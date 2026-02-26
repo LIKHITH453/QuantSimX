@@ -129,6 +129,318 @@ quantsimx/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/build
 .PHONY : quantsimx/fast
 
+external/imgui/backends/imgui_impl_glfw.o: external/imgui/backends/imgui_impl_glfw.cpp.o
+.PHONY : external/imgui/backends/imgui_impl_glfw.o
+
+# target to build an object file
+external/imgui/backends/imgui_impl_glfw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o
+.PHONY : external/imgui/backends/imgui_impl_glfw.cpp.o
+
+external/imgui/backends/imgui_impl_glfw.i: external/imgui/backends/imgui_impl_glfw.cpp.i
+.PHONY : external/imgui/backends/imgui_impl_glfw.i
+
+# target to preprocess a source file
+external/imgui/backends/imgui_impl_glfw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.i
+.PHONY : external/imgui/backends/imgui_impl_glfw.cpp.i
+
+external/imgui/backends/imgui_impl_glfw.s: external/imgui/backends/imgui_impl_glfw.cpp.s
+.PHONY : external/imgui/backends/imgui_impl_glfw.s
+
+# target to generate assembly for a file
+external/imgui/backends/imgui_impl_glfw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.s
+.PHONY : external/imgui/backends/imgui_impl_glfw.cpp.s
+
+external/imgui/backends/imgui_impl_opengl3.o: external/imgui/backends/imgui_impl_opengl3.cpp.o
+.PHONY : external/imgui/backends/imgui_impl_opengl3.o
+
+# target to build an object file
+external/imgui/backends/imgui_impl_opengl3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o
+.PHONY : external/imgui/backends/imgui_impl_opengl3.cpp.o
+
+external/imgui/backends/imgui_impl_opengl3.i: external/imgui/backends/imgui_impl_opengl3.cpp.i
+.PHONY : external/imgui/backends/imgui_impl_opengl3.i
+
+# target to preprocess a source file
+external/imgui/backends/imgui_impl_opengl3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.i
+.PHONY : external/imgui/backends/imgui_impl_opengl3.cpp.i
+
+external/imgui/backends/imgui_impl_opengl3.s: external/imgui/backends/imgui_impl_opengl3.cpp.s
+.PHONY : external/imgui/backends/imgui_impl_opengl3.s
+
+# target to generate assembly for a file
+external/imgui/backends/imgui_impl_opengl3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.s
+.PHONY : external/imgui/backends/imgui_impl_opengl3.cpp.s
+
+external/imgui/imgui.o: external/imgui/imgui.cpp.o
+.PHONY : external/imgui/imgui.o
+
+# target to build an object file
+external/imgui/imgui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o
+.PHONY : external/imgui/imgui.cpp.o
+
+external/imgui/imgui.i: external/imgui/imgui.cpp.i
+.PHONY : external/imgui/imgui.i
+
+# target to preprocess a source file
+external/imgui/imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.i
+.PHONY : external/imgui/imgui.cpp.i
+
+external/imgui/imgui.s: external/imgui/imgui.cpp.s
+.PHONY : external/imgui/imgui.s
+
+# target to generate assembly for a file
+external/imgui/imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.s
+.PHONY : external/imgui/imgui.cpp.s
+
+external/imgui/imgui_demo.o: external/imgui/imgui_demo.cpp.o
+.PHONY : external/imgui/imgui_demo.o
+
+# target to build an object file
+external/imgui/imgui_demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o
+.PHONY : external/imgui/imgui_demo.cpp.o
+
+external/imgui/imgui_demo.i: external/imgui/imgui_demo.cpp.i
+.PHONY : external/imgui/imgui_demo.i
+
+# target to preprocess a source file
+external/imgui/imgui_demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.i
+.PHONY : external/imgui/imgui_demo.cpp.i
+
+external/imgui/imgui_demo.s: external/imgui/imgui_demo.cpp.s
+.PHONY : external/imgui/imgui_demo.s
+
+# target to generate assembly for a file
+external/imgui/imgui_demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.s
+.PHONY : external/imgui/imgui_demo.cpp.s
+
+external/imgui/imgui_draw.o: external/imgui/imgui_draw.cpp.o
+.PHONY : external/imgui/imgui_draw.o
+
+# target to build an object file
+external/imgui/imgui_draw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o
+.PHONY : external/imgui/imgui_draw.cpp.o
+
+external/imgui/imgui_draw.i: external/imgui/imgui_draw.cpp.i
+.PHONY : external/imgui/imgui_draw.i
+
+# target to preprocess a source file
+external/imgui/imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.i
+.PHONY : external/imgui/imgui_draw.cpp.i
+
+external/imgui/imgui_draw.s: external/imgui/imgui_draw.cpp.s
+.PHONY : external/imgui/imgui_draw.s
+
+# target to generate assembly for a file
+external/imgui/imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.s
+.PHONY : external/imgui/imgui_draw.cpp.s
+
+external/imgui/imgui_tables.o: external/imgui/imgui_tables.cpp.o
+.PHONY : external/imgui/imgui_tables.o
+
+# target to build an object file
+external/imgui/imgui_tables.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o
+.PHONY : external/imgui/imgui_tables.cpp.o
+
+external/imgui/imgui_tables.i: external/imgui/imgui_tables.cpp.i
+.PHONY : external/imgui/imgui_tables.i
+
+# target to preprocess a source file
+external/imgui/imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.i
+.PHONY : external/imgui/imgui_tables.cpp.i
+
+external/imgui/imgui_tables.s: external/imgui/imgui_tables.cpp.s
+.PHONY : external/imgui/imgui_tables.s
+
+# target to generate assembly for a file
+external/imgui/imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.s
+.PHONY : external/imgui/imgui_tables.cpp.s
+
+external/imgui/imgui_widgets.o: external/imgui/imgui_widgets.cpp.o
+.PHONY : external/imgui/imgui_widgets.o
+
+# target to build an object file
+external/imgui/imgui_widgets.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o
+.PHONY : external/imgui/imgui_widgets.cpp.o
+
+external/imgui/imgui_widgets.i: external/imgui/imgui_widgets.cpp.i
+.PHONY : external/imgui/imgui_widgets.i
+
+# target to preprocess a source file
+external/imgui/imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.i
+.PHONY : external/imgui/imgui_widgets.cpp.i
+
+external/imgui/imgui_widgets.s: external/imgui/imgui_widgets.cpp.s
+.PHONY : external/imgui/imgui_widgets.s
+
+# target to generate assembly for a file
+external/imgui/imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.s
+.PHONY : external/imgui/imgui_widgets.cpp.s
+
+src/Backtester.o: src/Backtester.cpp.o
+.PHONY : src/Backtester.o
+
+# target to build an object file
+src/Backtester.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/Backtester.cpp.o
+.PHONY : src/Backtester.cpp.o
+
+src/Backtester.i: src/Backtester.cpp.i
+.PHONY : src/Backtester.i
+
+# target to preprocess a source file
+src/Backtester.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/Backtester.cpp.i
+.PHONY : src/Backtester.cpp.i
+
+src/Backtester.s: src/Backtester.cpp.s
+.PHONY : src/Backtester.s
+
+# target to generate assembly for a file
+src/Backtester.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/Backtester.cpp.s
+.PHONY : src/Backtester.cpp.s
+
+src/BinanceRESTClient.o: src/BinanceRESTClient.cpp.o
+.PHONY : src/BinanceRESTClient.o
+
+# target to build an object file
+src/BinanceRESTClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o
+.PHONY : src/BinanceRESTClient.cpp.o
+
+src/BinanceRESTClient.i: src/BinanceRESTClient.cpp.i
+.PHONY : src/BinanceRESTClient.i
+
+# target to preprocess a source file
+src/BinanceRESTClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.i
+.PHONY : src/BinanceRESTClient.cpp.i
+
+src/BinanceRESTClient.s: src/BinanceRESTClient.cpp.s
+.PHONY : src/BinanceRESTClient.s
+
+# target to generate assembly for a file
+src/BinanceRESTClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.s
+.PHONY : src/BinanceRESTClient.cpp.s
+
+src/BinanceWebSocketClient.o: src/BinanceWebSocketClient.cpp.o
+.PHONY : src/BinanceWebSocketClient.o
+
+# target to build an object file
+src/BinanceWebSocketClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o
+.PHONY : src/BinanceWebSocketClient.cpp.o
+
+src/BinanceWebSocketClient.i: src/BinanceWebSocketClient.cpp.i
+.PHONY : src/BinanceWebSocketClient.i
+
+# target to preprocess a source file
+src/BinanceWebSocketClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.i
+.PHONY : src/BinanceWebSocketClient.cpp.i
+
+src/BinanceWebSocketClient.s: src/BinanceWebSocketClient.cpp.s
+.PHONY : src/BinanceWebSocketClient.s
+
+# target to generate assembly for a file
+src/BinanceWebSocketClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.s
+.PHONY : src/BinanceWebSocketClient.cpp.s
+
+src/CSVWriter.o: src/CSVWriter.cpp.o
+.PHONY : src/CSVWriter.o
+
+# target to build an object file
+src/CSVWriter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o
+.PHONY : src/CSVWriter.cpp.o
+
+src/CSVWriter.i: src/CSVWriter.cpp.i
+.PHONY : src/CSVWriter.i
+
+# target to preprocess a source file
+src/CSVWriter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.i
+.PHONY : src/CSVWriter.cpp.i
+
+src/CSVWriter.s: src/CSVWriter.cpp.s
+.PHONY : src/CSVWriter.s
+
+# target to generate assembly for a file
+src/CSVWriter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.s
+.PHONY : src/CSVWriter.cpp.s
+
+src/DashboardUI.o: src/DashboardUI.cpp.o
+.PHONY : src/DashboardUI.o
+
+# target to build an object file
+src/DashboardUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o
+.PHONY : src/DashboardUI.cpp.o
+
+src/DashboardUI.i: src/DashboardUI.cpp.i
+.PHONY : src/DashboardUI.i
+
+# target to preprocess a source file
+src/DashboardUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.i
+.PHONY : src/DashboardUI.cpp.i
+
+src/DashboardUI.s: src/DashboardUI.cpp.s
+.PHONY : src/DashboardUI.s
+
+# target to generate assembly for a file
+src/DashboardUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.s
+.PHONY : src/DashboardUI.cpp.s
+
+src/NetworkClient.o: src/NetworkClient.cpp.o
+.PHONY : src/NetworkClient.o
+
+# target to build an object file
+src/NetworkClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o
+.PHONY : src/NetworkClient.cpp.o
+
+src/NetworkClient.i: src/NetworkClient.cpp.i
+.PHONY : src/NetworkClient.i
+
+# target to preprocess a source file
+src/NetworkClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.i
+.PHONY : src/NetworkClient.cpp.i
+
+src/NetworkClient.s: src/NetworkClient.cpp.s
+.PHONY : src/NetworkClient.s
+
+# target to generate assembly for a file
+src/NetworkClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.s
+.PHONY : src/NetworkClient.cpp.s
+
 src/OrderBook.o: src/OrderBook.cpp.o
 .PHONY : src/OrderBook.o
 
@@ -152,6 +464,78 @@ src/OrderBook.s: src/OrderBook.cpp.s
 src/OrderBook.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/OrderBook.cpp.s
 .PHONY : src/OrderBook.cpp.s
+
+src/SignalGenerator.o: src/SignalGenerator.cpp.o
+.PHONY : src/SignalGenerator.o
+
+# target to build an object file
+src/SignalGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o
+.PHONY : src/SignalGenerator.cpp.o
+
+src/SignalGenerator.i: src/SignalGenerator.cpp.i
+.PHONY : src/SignalGenerator.i
+
+# target to preprocess a source file
+src/SignalGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.i
+.PHONY : src/SignalGenerator.cpp.i
+
+src/SignalGenerator.s: src/SignalGenerator.cpp.s
+.PHONY : src/SignalGenerator.s
+
+# target to generate assembly for a file
+src/SignalGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.s
+.PHONY : src/SignalGenerator.cpp.s
+
+src/TradeTracker.o: src/TradeTracker.cpp.o
+.PHONY : src/TradeTracker.o
+
+# target to build an object file
+src/TradeTracker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o
+.PHONY : src/TradeTracker.cpp.o
+
+src/TradeTracker.i: src/TradeTracker.cpp.i
+.PHONY : src/TradeTracker.i
+
+# target to preprocess a source file
+src/TradeTracker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.i
+.PHONY : src/TradeTracker.cpp.i
+
+src/TradeTracker.s: src/TradeTracker.cpp.s
+.PHONY : src/TradeTracker.s
+
+# target to generate assembly for a file
+src/TradeTracker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.s
+.PHONY : src/TradeTracker.cpp.s
+
+src/VWAPCalculator.o: src/VWAPCalculator.cpp.o
+.PHONY : src/VWAPCalculator.o
+
+# target to build an object file
+src/VWAPCalculator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o
+.PHONY : src/VWAPCalculator.cpp.o
+
+src/VWAPCalculator.i: src/VWAPCalculator.cpp.i
+.PHONY : src/VWAPCalculator.i
+
+# target to preprocess a source file
+src/VWAPCalculator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.i
+.PHONY : src/VWAPCalculator.cpp.i
+
+src/VWAPCalculator.s: src/VWAPCalculator.cpp.s
+.PHONY : src/VWAPCalculator.s
+
+# target to generate assembly for a file
+src/VWAPCalculator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.s
+.PHONY : src/VWAPCalculator.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -186,9 +570,57 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... quantsimx"
+	@echo "... external/imgui/backends/imgui_impl_glfw.o"
+	@echo "... external/imgui/backends/imgui_impl_glfw.i"
+	@echo "... external/imgui/backends/imgui_impl_glfw.s"
+	@echo "... external/imgui/backends/imgui_impl_opengl3.o"
+	@echo "... external/imgui/backends/imgui_impl_opengl3.i"
+	@echo "... external/imgui/backends/imgui_impl_opengl3.s"
+	@echo "... external/imgui/imgui.o"
+	@echo "... external/imgui/imgui.i"
+	@echo "... external/imgui/imgui.s"
+	@echo "... external/imgui/imgui_demo.o"
+	@echo "... external/imgui/imgui_demo.i"
+	@echo "... external/imgui/imgui_demo.s"
+	@echo "... external/imgui/imgui_draw.o"
+	@echo "... external/imgui/imgui_draw.i"
+	@echo "... external/imgui/imgui_draw.s"
+	@echo "... external/imgui/imgui_tables.o"
+	@echo "... external/imgui/imgui_tables.i"
+	@echo "... external/imgui/imgui_tables.s"
+	@echo "... external/imgui/imgui_widgets.o"
+	@echo "... external/imgui/imgui_widgets.i"
+	@echo "... external/imgui/imgui_widgets.s"
+	@echo "... src/Backtester.o"
+	@echo "... src/Backtester.i"
+	@echo "... src/Backtester.s"
+	@echo "... src/BinanceRESTClient.o"
+	@echo "... src/BinanceRESTClient.i"
+	@echo "... src/BinanceRESTClient.s"
+	@echo "... src/BinanceWebSocketClient.o"
+	@echo "... src/BinanceWebSocketClient.i"
+	@echo "... src/BinanceWebSocketClient.s"
+	@echo "... src/CSVWriter.o"
+	@echo "... src/CSVWriter.i"
+	@echo "... src/CSVWriter.s"
+	@echo "... src/DashboardUI.o"
+	@echo "... src/DashboardUI.i"
+	@echo "... src/DashboardUI.s"
+	@echo "... src/NetworkClient.o"
+	@echo "... src/NetworkClient.i"
+	@echo "... src/NetworkClient.s"
 	@echo "... src/OrderBook.o"
 	@echo "... src/OrderBook.i"
 	@echo "... src/OrderBook.s"
+	@echo "... src/SignalGenerator.o"
+	@echo "... src/SignalGenerator.i"
+	@echo "... src/SignalGenerator.s"
+	@echo "... src/TradeTracker.o"
+	@echo "... src/TradeTracker.i"
+	@echo "... src/TradeTracker.s"
+	@echo "... src/VWAPCalculator.o"
+	@echo "... src/VWAPCalculator.i"
+	@echo "... src/VWAPCalculator.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

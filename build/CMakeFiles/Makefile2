@@ -85,12 +85,12 @@ clean: CMakeFiles/quantsimx.dir/clean
 CMakeFiles/quantsimx.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=1,2,3 "Built target quantsimx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target quantsimx"
 .PHONY : CMakeFiles/quantsimx.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/quantsimx.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/quantsimx.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles 0
 .PHONY : CMakeFiles/quantsimx.dir/rule
@@ -102,7 +102,7 @@ quantsimx: CMakeFiles/quantsimx.dir/rule
 # codegen rule for target.
 CMakeFiles/quantsimx.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/quantsimx.dir/build.make CMakeFiles/quantsimx.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target quantsimx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Finished codegen for target quantsimx"
 .PHONY : CMakeFiles/quantsimx.dir/codegen
 
 # clean rule for target.

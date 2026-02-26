@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/saitama/Desktop/C++/QuantSimX/include
+CXX_INCLUDES = -I/home/saitama/Desktop/C++/QuantSimX/include -I/home/saitama/Desktop/C++/QuantSimX/external/imgui -I/home/saitama/Desktop/C++/QuantSimX/external/imgui/backends
 
 CXX_FLAGS = -std=gnu++17
 

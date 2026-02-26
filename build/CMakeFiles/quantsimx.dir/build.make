@@ -100,20 +100,281 @@ CMakeFiles/quantsimx.dir/src/OrderBook.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/OrderBook.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/OrderBook.cpp -o CMakeFiles/quantsimx.dir/src/OrderBook.cpp.s
 
+CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/NetworkClient.cpp
+CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o -MF CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o.d -o CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/NetworkClient.cpp
+
+CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/NetworkClient.cpp > CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.i
+
+CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/NetworkClient.cpp -o CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.s
+
+CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/CSVWriter.cpp
+CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o -MF CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o.d -o CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/CSVWriter.cpp
+
+CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/CSVWriter.cpp > CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.i
+
+CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/CSVWriter.cpp -o CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.s
+
+CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/BinanceRESTClient.cpp
+CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o -MF CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o.d -o CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/BinanceRESTClient.cpp
+
+CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/BinanceRESTClient.cpp > CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.i
+
+CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/BinanceRESTClient.cpp -o CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.s
+
+CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/BinanceWebSocketClient.cpp
+CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o -MF CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o.d -o CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/BinanceWebSocketClient.cpp
+
+CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/BinanceWebSocketClient.cpp > CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.i
+
+CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/BinanceWebSocketClient.cpp -o CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.s
+
+CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/TradeTracker.cpp
+CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o -MF CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o.d -o CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/TradeTracker.cpp
+
+CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/TradeTracker.cpp > CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.i
+
+CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/TradeTracker.cpp -o CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.s
+
+CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/VWAPCalculator.cpp
+CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o -MF CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o.d -o CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/VWAPCalculator.cpp
+
+CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/VWAPCalculator.cpp > CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.i
+
+CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/VWAPCalculator.cpp -o CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.s
+
+CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/SignalGenerator.cpp
+CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o -MF CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o.d -o CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/SignalGenerator.cpp
+
+CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/SignalGenerator.cpp > CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.i
+
+CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/SignalGenerator.cpp -o CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.s
+
+CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/DashboardUI.cpp
+CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o -MF CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o.d -o CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/DashboardUI.cpp
+
+CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/DashboardUI.cpp > CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.i
+
+CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/DashboardUI.cpp -o CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.s
+
+CMakeFiles/quantsimx.dir/src/Backtester.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/src/Backtester.cpp.o: /home/saitama/Desktop/C++/QuantSimX/src/Backtester.cpp
+CMakeFiles/quantsimx.dir/src/Backtester.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/quantsimx.dir/src/Backtester.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/src/Backtester.cpp.o -MF CMakeFiles/quantsimx.dir/src/Backtester.cpp.o.d -o CMakeFiles/quantsimx.dir/src/Backtester.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/src/Backtester.cpp
+
+CMakeFiles/quantsimx.dir/src/Backtester.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/src/Backtester.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/src/Backtester.cpp > CMakeFiles/quantsimx.dir/src/Backtester.cpp.i
+
+CMakeFiles/quantsimx.dir/src/Backtester.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/src/Backtester.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/src/Backtester.cpp -o CMakeFiles/quantsimx.dir/src/Backtester.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui.cpp
+CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui.cpp > CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui.cpp -o CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_demo.cpp
+CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_demo.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_demo.cpp > CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_demo.cpp -o CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_draw.cpp
+CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_draw.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_draw.cpp > CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_draw.cpp -o CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_tables.cpp
+CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_tables.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_tables.cpp > CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_tables.cpp -o CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_widgets.cpp
+CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_widgets.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_widgets.cpp > CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/imgui_widgets.cpp -o CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_glfw.cpp
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_glfw.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_glfw.cpp > CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_glfw.cpp -o CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.s
+
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/quantsimx.dir/flags.make
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o: /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_opengl3.cpp
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/quantsimx.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o -MF CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_opengl3.cpp
+
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_opengl3.cpp > CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.i
+
+CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saitama/Desktop/C++/QuantSimX/external/imgui/backends/imgui_impl_opengl3.cpp -o CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.s
+
 # Object files for target quantsimx
 quantsimx_OBJECTS = \
 "CMakeFiles/quantsimx.dir/src/main.cpp.o" \
-"CMakeFiles/quantsimx.dir/src/OrderBook.cpp.o"
+"CMakeFiles/quantsimx.dir/src/OrderBook.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o" \
+"CMakeFiles/quantsimx.dir/src/Backtester.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o" \
+"CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o"
 
 # External object files for target quantsimx
 quantsimx_EXTERNAL_OBJECTS =
 
 quantsimx: CMakeFiles/quantsimx.dir/src/main.cpp.o
 quantsimx: CMakeFiles/quantsimx.dir/src/OrderBook.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/NetworkClient.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/CSVWriter.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/BinanceRESTClient.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/BinanceWebSocketClient.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/TradeTracker.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/VWAPCalculator.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/SignalGenerator.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/DashboardUI.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/src/Backtester.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/imgui.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/imgui_demo.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/imgui_draw.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/imgui_tables.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/imgui_widgets.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_glfw.cpp.o
+quantsimx: CMakeFiles/quantsimx.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o
 quantsimx: CMakeFiles/quantsimx.dir/build.make
 quantsimx: CMakeFiles/quantsimx.dir/compiler_depend.ts
+quantsimx: /usr/lib/libssl.so
+quantsimx: /usr/lib/libcrypto.so
+quantsimx: /usr/lib/libglfw.so.3.4
+quantsimx: /usr/lib/libGLX.so
+quantsimx: /usr/lib/libOpenGL.so
 quantsimx: CMakeFiles/quantsimx.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable quantsimx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable quantsimx"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/quantsimx.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
