@@ -1,121 +1,147 @@
 #include "OrderBook.h"
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 OrderBook::OrderBook() = default;
 
 void OrderBook::init_from_snapshot(const json& snapshot_json) {
-    try {
-        bids_.clear();
-        asks_.clear();
-        
-        // Parse bids: [[price, qty], ...]
-        if (snapshot_json.contains("bids")) {
-            for (const auto& level : snapshot_json["bids"]) {
-                double price = std::stod(level[0].get<std::string>());
-                double qty = std::stod(level[1].get<std::string>());
-                if (qty > 0) bids_[price] = qty;
+    bid_count_ = 0;
+    ask_count_ = 0;
+    
+    if (snapshot_json.contains("bids")) {
+        for (const auto& level : snapshot_json["bids"]) {
+            double price = std::stod(level[0].get<std::string>());
+            double qty = std::stod(level[1].get<std::string>());
+            if (qty > 0 && bid_count_ < MAX_LEVELS) {
+                insert_bid(price, qty);
             }
         }
-        
-        // Parse asks: [[price, qty], ...]
-        if (snapshot_json.contains("asks")) {
-            for (const auto& level : snapshot_json["asks"]) {
-                double price = std::stod(level[0].get<std::string>());
-                double qty = std::stod(level[1].get<std::string>());
-                if (qty > 0) asks_[price] = qty;
+    }
+    
+    if (snapshot_json.contains("asks")) {
+        for (const auto& level : snapshot_json["asks"]) {
+            double price = std::stod(level[0].get<std::string>());
+            double qty = std::stod(level[1].get<std::string>());
+            if (qty > 0 && ask_count_ < MAX_LEVELS) {
+                insert_ask(price, qty);
             }
         }
-        
-        std::cout << "[OrderBook] initialized from snapshot: " << bids_.size() << " bids, "
-                  << asks_.size() << " asks\n";
-    } catch (const std::exception& e) {
-        std::cerr << "[OrderBook] init_from_snapshot error: " << e.what() << "\n";
     }
 }
 
 void OrderBook::apply_depth_update(const json& depth_msg) {
-    try {
-        // Depth message format: {"b": [[price, qty], ...], "a": [[price, qty], ...], "U": lastUpdateId, ...}
-        if (depth_msg.contains("b")) {
-            for (const auto& level : depth_msg["b"]) {
-                double price = std::stod(level[0].get<std::string>());
-                double qty = std::stod(level[1].get<std::string>());
-                if (qty == 0) {
-                    bids_.erase(price);
-                } else {
-                    bids_[price] = qty;
+    if (depth_msg.contains("b")) {
+        for (const auto& level : depth_msg["b"]) {
+            double price = std::stod(level[0].get<std::string>());
+            double qty = std::stod(level[1].get<std::string>());
+            
+            if (qty == 0) {
+                for (std::size_t i = 0; i < bid_count_; ++i) {
+                    if (bids_[i].price == price) {
+                        erase_bid(i);
+                        break;
+                    }
+                }
+            } else {
+                bool found = false;
+                for (std::size_t i = 0; i < bid_count_; ++i) {
+                    if (bids_[i].price == price) {
+                        bids_[i].quantity = qty;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found && bid_count_ < MAX_LEVELS) {
+                    insert_bid(price, qty);
                 }
             }
         }
-        
-        if (depth_msg.contains("a")) {
-            for (const auto& level : depth_msg["a"]) {
-                double price = std::stod(level[0].get<std::string>());
-                double qty = std::stod(level[1].get<std::string>());
-                if (qty == 0) {
-                    asks_.erase(price);
-                } else {
-                    asks_[price] = qty;
+    }
+    
+    if (depth_msg.contains("a")) {
+        for (const auto& level : depth_msg["a"]) {
+            double price = std::stod(level[0].get<std::string>());
+            double qty = std::stod(level[1].get<std::string>());
+            
+            if (qty == 0) {
+                for (std::size_t i = 0; i < ask_count_; ++i) {
+                    if (asks_[i].price == price) {
+                        erase_ask(i);
+                        break;
+                    }
+                }
+            } else {
+                bool found = false;
+                for (std::size_t i = 0; i < ask_count_; ++i) {
+                    if (asks_[i].price == price) {
+                        asks_[i].quantity = qty;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found && ask_count_ < MAX_LEVELS) {
+                    insert_ask(price, qty);
                 }
             }
         }
-        
-        if (depth_msg.contains("U")) {
-            last_update_id_ = depth_msg["U"].get<uint64_t>();
-        }
-    } catch (const std::exception& e) {
-        std::cerr << "[OrderBook] apply_depth_update error: " << e.what() << "\n";
+    }
+    
+    if (depth_msg.contains("U")) {
+        last_update_id_ = depth_msg["U"].get<uint64_t>();
     }
 }
 
 void OrderBook::apply_aggtrade(const json& trade_msg) {
-    try {
-        // AggTrade message: {p: price, q: qty, T: timestamp, ...}
-        if (trade_msg.contains("p") && trade_msg.contains("q")) {
-            last_trade_price_ = std::stod(trade_msg["p"].get<std::string>());
-            last_trade_qty_ = std::stod(trade_msg["q"].get<std::string>());
-            if (trade_msg.contains("T")) {
-                last_trade_time_ = trade_msg["T"].get<uint64_t>();
-            }
+    if (trade_msg.contains("p") && trade_msg.contains("q")) {
+        last_trade_price_ = std::stod(trade_msg["p"].get<std::string>());
+        last_trade_qty_ = std::stod(trade_msg["q"].get<std::string>());
+        if (trade_msg.contains("T")) {
+            last_trade_time_ = trade_msg["T"].get<uint64_t>();
         }
-    } catch (const std::exception& e) {
-        std::cerr << "[OrderBook] apply_aggtrade error: " << e.what() << "\n";
     }
 }
 
-double OrderBook::get_best_bid() const {
-    return bids_.empty() ? 0.0 : bids_.begin()->first;
-}
-
-double OrderBook::get_best_ask() const {
-    return asks_.empty() ? 0.0 : asks_.begin()->first;
-}
-
-double OrderBook::get_mid_price() const {
-    double bid = get_best_bid();
-    double ask = get_best_ask();
-    return (bid > 0 && ask > 0) ? (bid + ask) / 2.0 : 0.0;
-}
-
-std::vector<OrderBookLevel> OrderBook::get_bids(int n) const {
-    std::vector<OrderBookLevel> result;
-    int count = 0;
-    for (const auto& [price, qty] : bids_) {
-        if (count++ >= n) break;
-        result.push_back({price, qty});
+void OrderBook::insert_bid(double price, double qty) {
+    std::size_t i = 0;
+    while (i < bid_count_ && bids_[i].price > price) {
+        ++i;
     }
-    return result;
+    if (i < MAX_LEVELS) {
+        for (std::size_t j = bid_count_; j > i; --j) {
+            bids_[j] = bids_[j - 1];
+        }
+        bids_[i] = {price, qty};
+        if (bid_count_ < MAX_LEVELS) ++bid_count_;
+    }
 }
 
-std::vector<OrderBookLevel> OrderBook::get_asks(int n) const {
-    std::vector<OrderBookLevel> result;
-    int count = 0;
-    for (const auto& [price, qty] : asks_) {
-        if (count++ >= n) break;
-        result.push_back({price, qty});
+void OrderBook::insert_ask(double price, double qty) {
+    std::size_t i = 0;
+    while (i < ask_count_ && asks_[i].price < price) {
+        ++i;
     }
-    return result;
+    if (i < MAX_LEVELS) {
+        for (std::size_t j = ask_count_; j > i; --j) {
+            asks_[j] = asks_[j - 1];
+        }
+        asks_[i] = {price, qty};
+        if (ask_count_ < MAX_LEVELS) ++ask_count_;
+    }
+}
+
+void OrderBook::erase_bid(std::size_t idx) {
+    for (std::size_t i = idx; i < bid_count_ - 1; ++i) {
+        bids_[i] = bids_[i + 1];
+    }
+    --bid_count_;
+}
+
+void OrderBook::erase_ask(std::size_t idx) {
+    for (std::size_t i = idx; i < ask_count_ - 1; ++i) {
+        asks_[i] = asks_[i + 1];
+    }
+    --ask_count_;
 }
 
 void OrderBook::print_snapshot() const {
@@ -125,15 +151,13 @@ void OrderBook::print_snapshot() const {
     std::cout << "Mid price: " << get_mid_price() << "\n";
     
     std::cout << "\nTop 5 Bids:\n";
-    auto bids = get_bids(5);
-    for (const auto& level : bids) {
-        std::cout << "  " << level.price << " x " << level.quantity << "\n";
+    for (std::size_t i = 0; i < std::min(std::size_t(5), bid_count_); ++i) {
+        std::cout << "  " << bids_[i].price << " x " << bids_[i].quantity << "\n";
     }
     
     std::cout << "\nTop 5 Asks:\n";
-    auto asks = get_asks(5);
-    for (const auto& level : asks) {
-        std::cout << "  " << level.price << " x " << level.quantity << "\n";
+    for (std::size_t i = 0; i < std::min(std::size_t(5), ask_count_); ++i) {
+        std::cout << "  " << asks_[i].price << " x " << asks_[i].quantity << "\n";
     }
     std::cout << "========================\n\n";
 }

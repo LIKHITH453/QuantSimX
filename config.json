@@ -1,0 +1,13 @@
+{
+    "vwap_sma_period": 20,
+    "rsi_period": 14,
+    "rsi_oversold": 30.0,
+    "rsi_overbought": 70.0,
+    "data_collection_timeout_seconds": 180,
+    "websocket_reconnect_max_attempts": 5,
+    "websocket_reconnect_delay_ms": 1000,
+    "dashboard_width": 1600,
+    "dashboard_height": 900,
+    "symbol": "btcusdt",
+    "csv_output_file": "market_data.csv"
+}

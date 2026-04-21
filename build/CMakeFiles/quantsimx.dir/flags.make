@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/saitama/Desktop/C++/QuantSimX/include -I/home/saitama/Desktop/C++/QuantSimX/external/imgui -I/home/saitama/Desktop/C++/QuantSimX/external/imgui/backends
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17
 
