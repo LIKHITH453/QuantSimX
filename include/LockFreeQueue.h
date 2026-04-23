@@ -12,37 +12,36 @@ public:
     static_assert((Capacity & (Capacity - 1)) == 0, "Capacity must be power of 2");
     static_assert(std::is_trivially_destructible_v<T>, "T must be trivially destructible");
 
-    LockFreeQueue() : head_(0), tail_(0) {
-        for (std::size_t i = 0; i < Capacity; ++i) {
-            slots_[i].version.store(i, std::memory_order_relaxed);
-        }
-    }
+    LockFreeQueue() : head_(0), tail_(0) {}
 
     bool push(const T& item) {
-        std::size_t tail = tail_.load(std::memory_order_relaxed);
-        Slot& slot = slots_[tail & (Capacity - 1)];
-        std::size_t version = slot.version.load(std::memory_order_acquire);
+        std::size_t head = head_.load(std::memory_order_relaxed);
+        std::size_t tail = tail_.load(std::memory_order_acquire);
         
-        if ((tail - head_.load(std::memory_order_acquire)) >= Capacity) {
+        if (tail - head >= Capacity) {
             return false;
         }
         
-        slot.data = item;
-        slot.version.store(tail + 1, std::memory_order_release);
+        slots_[tail & (Capacity - 1)].data = item;
+        
+        std::atomic_thread_fence(std::memory_order_release);
+        
         tail_.store(tail + 1, std::memory_order_release);
         return true;
     }
 
     bool pop(T& item) {
-        std::size_t head = head_.load(std::memory_order_relaxed);
-        Slot& slot = slots_[head & (Capacity - 1)];
-        std::size_t version = slot.version.load(std::memory_order_acquire);
+        std::size_t head = head_.load(std::memory_order_acquire);
+        std::size_t tail = tail_.load(std::memory_order_relaxed);
         
-        if (version <= head) {
+        if (tail <= head) {
             return false;
         }
         
-        item = slot.data;
+        std::atomic_thread_fence(std::memory_order_acquire);
+        
+        item = slots_[head & (Capacity - 1)].data;
+        
         head_.store(head + 1, std::memory_order_release);
         return true;
     }
@@ -65,7 +64,6 @@ public:
 private:
     struct Slot {
         T data;
-        std::atomic<std::size_t> version;
     };
     
     alignas(64) std::array<Slot, Capacity> slots_;

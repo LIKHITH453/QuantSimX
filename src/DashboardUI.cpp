@@ -348,16 +348,18 @@ void DashboardUI::render_orderbook_panel(const OrderBook& ob) {
 
     ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "BIDS");
     ImGui::Separator();
-    const auto& bids = ob.get_bids();
-    for (size_t i = 0; i < std::min(bids.size(), size_t(10)); ++i) {
+    const auto* bids = ob.get_bids();
+    size_t bid_count = ob.get_bid_count();
+    for (size_t i = 0; i < std::min(bid_count, size_t(10)); ++i) {
         ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "$%.2f x %.4f", bids[i].price, bids[i].quantity);
     }
 
     ImGui::NextColumn();
     ImGui::TextColored(ImVec4(1.0f, 0.2f, 0.2f, 1.0f), "ASKS");
     ImGui::Separator();
-    const auto& asks = ob.get_asks();
-    for (size_t i = 0; i < std::min(asks.size(), size_t(10)); ++i) {
+    const auto* asks = ob.get_asks();
+    size_t ask_count = ob.get_ask_count();
+    for (size_t i = 0; i < std::min(ask_count, size_t(10)); ++i) {
         ImGui::TextColored(ImVec4(1.0f, 0.2f, 0.2f, 1.0f), "$%.2f x %.4f", asks[i].price, asks[i].quantity);
     }
 

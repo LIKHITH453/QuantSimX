@@ -77,7 +77,7 @@ void update_dashboard_metrics(
     // These are already being set elsewhere, but for reference:
     // dashboard.cumulative_pnl_ = (already set)
     // dashboard.winning_trades_ = winning_trades;
-    // dashboard.total_trades_ = total_trades;
+    // dashboard.total_trades_ = total_trades ;
 }
 
 // ===== EXAMPLE: Update active position from market data =====
