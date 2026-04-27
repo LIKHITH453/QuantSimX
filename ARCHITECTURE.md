@@ -7,32 +7,33 @@ QuantSimX is a high-frequency trading (HFT) simulation platform that provides re
 ## System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                          QuantSimX                                   │
-├─────────────────────────────────────────────────────────────────────┤
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐              │
-│  │   Binance    │  │  REST API    │  │   OrderBook  │              │
-│  │  WebSocket   │──▶│  Snapshot    │──▶│   (Array)    │              │
-│  └──────────────┘  └──────────────┘  └──────────────┘              │
-│         │                                      │                      │
-│         ▼                                      ▼                      │
-│  ┌──────────────┐                      ┌──────────────┐            │
-│  │  Lock-Free   │                      │   VWAP       │            │
-│  │  MPMC Queue  │                      │  Calculator  │            │
-│  └──────────────┘                      │  (RingBuf)   │            │
-│         │                              └──────────────┘            │
-│         ▼                                      │                      │
-│  ┌──────────────┐                      ┌──────────────┐            │
-│  │   Signal     │◀─────────────────────│    RSI       │            │
-│  │  Generator   │                      │  (RingBuf)   │            │
-│  └──────────────┘                      └──────────────┘            │
-│         │                                                        │
-│         ▼                                                        │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐            │
-│  │  Backtester  │  │    CSV       │  │  Dashboard   │            │
-│  │              │  │   Writer     │  │    (ImGui)   │            │
-│  └──────────────┘  └──────────────┘  └──────────────┘            │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          QuantSimX                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
+│  │   Binance    │  │  REST API    │  │  Optimized   │  │   Zero-Copy  │    │
+│  │  WebSocket   │──▶│  Snapshot    │──▶│  OrderBook   │──▶│  UDP Ingress │    │
+│  └──────────────┘  └──────────────┘  │  (Bitmask)   │  └──────────────┘    │
+│         │                              └──────────────┘                      │
+│         ▼                                      │                              │
+│  ┌──────────────┐                              ▼                              │
+│  │     SPSC     │                      ┌──────────────┐                       │
+│  │  RingBuffer  │                      │     VWAP     │                       │
+│  │  (alignas 64)│                      │  Calculator  │                       │
+│  └──────────────┘                      └──────────────┘                       │
+│         │                                      │                              │
+│         ▼                                      ▼                              │
+│  ┌──────────────┐                      ┌──────────────┐                       │
+│  │   Signal     │◀─────────────────────│     RSI      │                       │
+│  │  Generator   │                      │  (RingBuf)   │                       │
+│  └──────────────┘                      └──────────────┘                       │
+│         │                                                               │
+│         ▼                                                               │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
+│  │  Backtester  │  │    CSV       │  │  Dashboard   │  │  CPU Pinning │    │
+│  │              │  │   Writer     │  │   (ImGui)   │  │  (affinity)  │    │
+│  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘    │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ## Core Components
@@ -43,13 +44,15 @@ QuantSimX is a high-frequency trading (HFT) simulation platform that provides re
 |-----------|------|-------------|
 | `BinanceWebSocketClient` | WebSocket | Connects to Binance streams (depth@100ms, aggTrade) |
 | `BinanceRESTClient` | HTTP | Fetches orderbook snapshots |
-| `LockFreeQueue<TickData, 4096>` | MPMC Queue | Lock-free tick distribution |
+| `SPSCRingBuffer<TickData, 4096>` | SPSC Queue | Single-producer/single-consumer ring buffer |
+| `ZeroCopyUDPIngress` | UDP | Zero-copy network ingress directly from OS socket buffer |
 
 ### 2. Market Data Processing
 
 | Component | Data Structure | Complexity |
 |-----------|---------------|------------|
 | `OrderBook` | Flat array [256 levels] | O(n) insert, O(1) best bid/ask |
+| `OptimizedOrderBook` | 64-bit bitmask + 32B packed Order | O(1) BBO via bit-scanning |
 | `VWAPCalculator` | RingBuffer [4096] + cumulative sum | O(1) VWAP update |
 | `SignalGenerator` | State machine | O(1) signal generation |
 
@@ -72,63 +75,74 @@ Signal = f(price, vwap, rsi)
 ## Data Flow
 
 ```
-Binance WS ──▶ WebSocket Client ──▶ LockFreeQueue
-                                          │
-                                          ▼
-                                    TickQueue.pop()
-                                          │
-          ┌───────────────────────────────┼───────────────────────────────┐
-          │                               │                               │
-          ▼                               ▼                               ▼
-   OrderBook.update()              vwap_calc.add_price()           signal_gen.update()
-          │                               │                               │
-          ▼                               ▼                               ▼
-   best_bid/ask                     vwap_, sma_, rsi_              Signal{BUY,SELL,NONE}
+Binance WS ──▶ WebSocket Client ──▶ SPSCRingBuffer (SPSC)
+                                           │
+                                           ▼
+                              ZeroCopyUDPIngress (optional)
+                                           │
+                                           ▼
+                                     TickQueue.pop()
+                                           │
+           ┌───────────────────────────────┼───────────────────────────────┐
+           │                               │                               │
+           ▼                               ▼                               ▼
+    OptimizedOrderBook.update()    vwap_calc.add_price()           signal_gen.update()
+           │                               │                               │
+           ▼                               ▼                               ▼
+    __builtin_ctzll(mask)            vwap_, sma_, rsi_              Signal{BUY,SELL,NONE}
+    O(1) Best Bid/Ask
 ```
 
 ## Performance Optimizations
 
-### Lock-Free Queue (MPMC)
+All HFT optimizations are consolidated in `include/HFTPerf.h`:
+
+### Zero-Copy UDP Ingress
+- Network payloads parsed directly from OS socket buffer into `MarketData` struct
+- `alignas(64)` prevents false sharing across CPU cores
+
+### Lock-Free SPSC Ring Buffer
 ```cpp
 template<typename T, std::size_t Capacity>
-class LockFreeQueue {
-    // CAS-based push/pop
-    // 64-byte cache-line alignment
-    // Power-of-2 capacity for fast modulo
+class alignas(64) SPSCRingBuffer { ... };
+```
+- Single-producer/single-consumer, no CAS needed
+- `alignas(64)` hardware destructive interference size
+
+### O(1) Hardware Bit-Scanning OrderBook
+```cpp
+class BitmaskOrderBook {
+    uint64_t bid_mask_, ask_mask_;  // 64-bit bitmask of active levels
+    int best_bid_level() const { return __builtin_ctzll(bid_mask_); }
 };
 ```
+- Finding BBO uses `__builtin_ctzll()` - single clock cycle
 
-### Ring Buffer
+### L1 Cache-Line Packing
 ```cpp
-template<typename T, std::size_t Capacity>
-class RingBuffer {
-    // O(1) push/pop
-    // No heap allocation
-    // Fixed memory footprint
-};
+struct PackedOrder { ... };  // 24 bytes, 2 fit in 64B L1 line
 ```
 
-### Flat Order Book
+### Hash-Free Direct Memory Access
+- `PackedOrder[64]` flat arrays replace `std::unordered_map`
+- O(1) pointer arithmetic lookup, no hash collisions
+
+### OS CPU Pinning
 ```cpp
-class OrderBook {
-    std::array<OrderBookLevel, MAX_LEVELS> bids_;
-    std::array<OrderBookLevel, MAX_LEVELS> asks_;
-    // No map/tree overhead
-    // Cache-friendly sequential access
-};
+CpuPinner::pin(core_id);  // Locks thread via pthread_setaffinity_np
 ```
 
 ## Thread Safety
 
 | Component | Thread Safety | Notes |
 |-----------|---------------|-------|
-| `LockFreeQueue` | Lock-free | CAS-based, multi-producer/multi-consumer |
-| `OrderBook` | Not thread-safe | Single-producer (WS thread) |
-| `VWAPCalculator` | Not thread-safe | Single-producer |
-| `SignalGenerator` | Not thread-safe | Single-producer |
-| `ThreadPool` | Lock-free | Task ring buffer |
+| `SPSCRingBuffer` | Lock-free SPSC | Single-producer/single-consumer, no CAS |
+| `BitmaskOrderBook` | Not thread-safe | Single-producer (network thread) |
+| `ZeroCopyUDP` | OS-level | Direct socket buffer parsing |
+| `LockFreeQueue` | Lock-free MPMC | CAS-based, multi-producer/multi-consumer |
+| `CpuPinner` | N/A | Compile-time thread affinity |
 
-**Note**: For multi-threaded use, add `std::atomic` protection or separate instances per thread.
+**Note**: `CpuPinner::pin()` locks threads to isolated CPU cores to prevent migration overhead.
 
 ## Configuration
 
@@ -168,11 +182,12 @@ cmake --build . -j$(nproc)
 ```
 QuantSimX/
 ├── include/
+│   ├── HFTPerf.h           # All HFT optimizations in one header
 │   ├── LockFreeQueue.h     # Lock-free MPMC queue
 │   ├── OrderBook.h         # Flat array order book
 │   ├── VWAPCalculator.h    # Ring buffer indicators
 │   ├── SignalGenerator.h   # Trading signals
-│   ├── TradingEngine.h      # Main orchestration
+│   ├── TradingEngine.h     # Main orchestration
 │   └── ...
 ├── src/
 │   ├── main.cpp            # Entry point
@@ -183,6 +198,17 @@ QuantSimX/
 ├── CMakeLists.txt
 └── README.md
 ```
+
+## HFT Performance Optimizations (`HFTPerf.h`)
+
+| Optimization | Implementation |
+|-------------|----------------|
+| **SPSC Ring Buffer** | `alignas(64)` template, no CAS, power-of-2 capacity |
+| **CPU Pinning** | `CpuPinner::pin(core)` via `pthread_setaffinity_np` |
+| **32B Packed Order** | `PackedOrder` struct with `price_raw`/`qty_raw` fixed-point |
+| **O(1) Bitmask BBO** | `__builtin_ctzll()` finds best bid/ask in one cycle |
+| **Zero-Copy UDP** | Direct `recvfrom` into aligned `MarketData` struct |
+| **Hash-Free Storage** | Flat `PackedOrder[64]` arrays replace `unordered_map` |
 
 ## Limitations
 
