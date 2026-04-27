@@ -2,7 +2,8 @@
 
 #include <atomic>
 #include <cstdint>
-#include <limits>
+#include <cmath>
+#include <chrono>
 
 struct RiskLimits {
     double max_position_size = 1.0;
@@ -14,7 +15,7 @@ struct RiskLimits {
 
 class RiskManager {
 public:
-    RiskManager() : reset(); }
+    RiskManager() : last_reset_ns_(0) {}
 
     void reset() {
         daily_pnl_.store(0.0);
