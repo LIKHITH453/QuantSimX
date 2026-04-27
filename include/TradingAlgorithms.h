@@ -23,14 +23,15 @@ public:
     void clear_signals() { signals_.clear(); }
 
 protected:
-    void emit_signal(Signal sig, const std::string& reason, double aux = 0.0) {
+    void emit_signal(Signal sig, const std::string& reason) {
         if (sig != Signal::NONE) {
             SignalEvent evt;
             evt.timestamp_ms = last_tick_.timestamp_ms;
             evt.signal = sig;
             evt.reason = reason;
             evt.price = last_tick_.price;
-            evt.auxiliary = aux;
+            evt.vwap = last_tick_.vwap;
+            evt.rsi = last_tick_.rsi;
             signals_.push_back(evt);
             last_signal_ = evt;
         }
