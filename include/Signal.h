@@ -15,7 +15,8 @@ struct SignalEvent {
     Signal signal = Signal::NONE;
     std::string reason;
     double price = 0.0;
-    double auxiliary = 0.0;
+    double vwap = 0.0;
+    double rsi = 0.0;
 };
 
 struct TickData {
@@ -34,5 +35,5 @@ struct TickData {
     double macd_line = 0.0;
     double signal_line = 0.0;
     double atr = 0.0;
-    double mid_price() const { return (bid_price + ask_price) / 2.0; }
+    double mid_price() const { return (bid_price + ask_price) * 0.5; }
 };
