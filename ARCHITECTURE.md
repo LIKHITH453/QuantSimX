@@ -182,33 +182,34 @@ cmake --build . -j$(nproc)
 ```
 QuantSimX/
 ├── include/
-│   ├── HFTPerf.h           # All HFT optimizations in one header
-│   ├── LockFreeQueue.h     # Lock-free MPMC queue
+│   ├── HFTPerf.h           # HFT optimizations (SPSC, bitmask BBO, CPU pin)
+│   ├── LatencyProfiler.h   # Cycle-accurate latency tracking
+│   ├── RiskManager.h       # Position limits, daily loss limits
+│   ├── SymbolIndex.h       # Thread-safe multi-symbol map
+│   ├── Signal.h            # Signal enum, TickData struct
+│   ├── LockFreeQueue.h     # MPMC lock-free queue
 │   ├── OrderBook.h         # Flat array order book
 │   ├── VWAPCalculator.h    # Ring buffer indicators
 │   ├── SignalGenerator.h   # Trading signals
 │   ├── TradingEngine.h     # Main orchestration
 │   └── ...
 ├── src/
-│   ├── main.cpp            # Entry point
-│   ├── OrderBook.cpp       # Order book implementation
-│   ├── VWAPCalculator.cpp  # Indicator calculations
+│   ├── main.cpp
+│   ├── OrderBook.cpp
 │   └── ...
+├── tests/
+│   └── test_hft_perf.cpp   # Performance benchmarks
 ├── external/               # Vendored dependencies (ImGui)
 ├── CMakeLists.txt
 └── README.md
 ```
 
-## HFT Performance Optimizations (`HFTPerf.h`)
+## Code Quality
 
-| Optimization | Implementation |
-|-------------|----------------|
-| **SPSC Ring Buffer** | `alignas(64)` template, no CAS, power-of-2 capacity |
-| **CPU Pinning** | `CpuPinner::pin(core)` via `pthread_setaffinity_np` |
-| **32B Packed Order** | `PackedOrder` struct with `price_raw`/`qty_raw` fixed-point |
-| **O(1) Bitmask BBO** | `__builtin_ctzll()` finds best bid/ask in one cycle |
-| **Zero-Copy UDP** | Direct `recvfrom` into aligned `MarketData` struct |
-| **Hash-Free Storage** | Flat `PackedOrder[64]` arrays replace `unordered_map` |
+- **Single header for Signal enum** - `Signal.h` defines `Signal`, `SignalEvent`, `TickData`
+- **Fixed-point arithmetic** - `RiskManager` uses cents to avoid floating-point issues
+- **Thread-safe registry** - `SymbolIndex<T>` with mutex protection for multi-symbol support
+- **Cycle-accurate profiling** - `LatencyProfiler` uses `__builtin_readcyclecounter()`
 
 ## Limitations
 

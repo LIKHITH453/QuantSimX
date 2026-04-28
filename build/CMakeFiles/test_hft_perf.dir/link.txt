@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/test_hft_perf.dir/link.d CMakeFiles/test_hft_perf.dir/tests/test_hft_perf.cpp.o -o test_hft_perf

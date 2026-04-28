@@ -1,3 +1,4 @@
 /home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles/quantsimx.dir
+/home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles/test_hft_perf.dir
 /home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles/edit_cache.dir
 /home/saitama/Desktop/C++/QuantSimX/build/CMakeFiles/rebuild_cache.dir

@@ -66,3 +66,8 @@ endif()
 if(websocketpp_FOUND)
     target_link_libraries(quantsimx PRIVATE websocketpp::websocketpp)
 endif()
+
+# Performance test executable
+add_executable(test_hft_perf tests/test_hft_perf.cpp)
+target_include_directories(test_hft_perf PRIVATE include)
+target_link_libraries(test_hft_perf PRIVATE Threads::Threads)

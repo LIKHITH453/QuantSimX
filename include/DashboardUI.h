@@ -5,7 +5,9 @@
 #include <vector>
 #include <ctime>
 #include <chrono>
+#include <string>
 
+#include "imgui.h"
 #include "OrderBook.h"
 #include "VWAPCalculator.h"
 #include "SignalGenerator.h"
@@ -13,21 +15,29 @@
 
 struct ImDrawData;
 
-struct ActivePosition {
+struct TradePosition {
     uint64_t entry_time = 0;
     double entry_price = 0.0;
-    double current_price = 0.0;
-    double quantity = 1.0;
+    double exit_price = 0.0;
     double pnl = 0.0;
     double pnl_percent = 0.0;
-    std::string signal_type;  // "BUY" or "SELL"
+    bool is_long = true;
 };
 
-enum class AppState {
-    IDLE,
+struct AccountMetrics {
+    double equity = 0.0;
+    double unrealized_pnl = 0.0;
+    double realized_pnl = 0.0;
+    double daily_pnl = 0.0;
+    double max_drawdown = 0.0;
+    double run_up = 0.0;
+};
+
+enum class ConnectionStatus {
+    DISCONNECTED,
     CONNECTING,
     CONNECTED,
-    STOPPED
+    RECONNECTING
 };
 
 class DashboardUI {
@@ -39,82 +49,78 @@ public:
 
     bool init(int width, int height);
     void shutdown();
-    bool render_frame(const OrderBook& ob, const VWAPCalculator& vwap_calc,
-                     const SignalGenerator& sig_gen);
+    bool render(const OrderBook& ob, const VWAPCalculator& vwap_calc,
+                const SignalGenerator& sig_gen);
 
-    bool should_connect() const { return should_connect_; }
-    bool should_disconnect() const { return should_disconnect_; }
-    bool should_stop_collection() const { return should_stop_; }
-    bool should_run_backtest() const { return should_backtest_; }
-    bool should_close() const { return should_close_; }
-    void reset_button_flags();
+    bool should_connect() const { return connect_requested_; }
+    bool should_disconnect() const { return disconnect_requested_; }
+    bool should_stop() const { return stop_requested_; }
+    bool should_backtest() const { return backtest_requested_; }
+    bool should_close() const { return close_requested_; }
+    void reset_flags();
 
-    AppState get_app_state() const { return app_state_; }
-    void set_app_state(AppState state);
-
-    void set_backtest_metrics(const BacktestMetrics& metrics) {
-        backtest_metrics_ = metrics;
-        backtest_has_results_ = true;
+    void set_connection_status(ConnectionStatus status) { connection_status_ = status; }
+    void set_backtest_results(const BacktestMetrics& metrics) {
+        backtest_results_ = metrics;
+        has_backtest_results_ = true;
     }
+
+    AccountMetrics get_account() const { return account_; }
+    void set_account(const AccountMetrics& acc) { account_ = acc; }
 
 private:
     DashboardUI() = default;
     ~DashboardUI() = default;
 
-    void* glfw_window_ = nullptr;
-    AppState app_state_ = AppState::IDLE;
-    bool should_connect_ = false;
-    bool should_disconnect_ = false;
-    bool should_stop_ = false;
-    bool should_backtest_ = false;
-    bool should_close_ = false;
+    void* window_ = nullptr;
+    ConnectionStatus connection_status_ = ConnectionStatus::DISCONNECTED;
+    
+    bool connect_requested_ = false;
+    bool disconnect_requested_ = false;
+    bool stop_requested_ = false;
+    bool backtest_requested_ = false;
+    bool close_requested_ = false;
+    bool settings_open_ = false;
 
     std::deque<double> price_history_;
     std::deque<double> vwap_history_;
+    std::deque<double> rsi_history_;
+    std::deque<TradePosition> closed_trades_;
     
-    // smoothed display values to avoid flicker
     double displayed_price_ = 0.0;
     double displayed_vwap_ = 0.0;
+    float smooth_alpha_ = 0.15f;
 
-    // smoothing parameters (configurable via UI)
-    float price_smooth_alpha_ = 0.1f;
-    float vwap_smooth_alpha_  = 0.1f;
+    AccountMetrics account_;
+    bool has_backtest_results_ = false;
+    BacktestMetrics backtest_results_;
+    float anim_time_ = 0.0f;
 
-    // debug controls
-    bool show_metrics_window_ = false;
-
-    // regime analysis data
-    std::vector<double> analysis_returns_;
-    std::vector<double> analysis_volatility_;
-    std::vector<double> filtered_prob_low_;  // low-vol regime
-    std::vector<double> filtered_prob_high_; // high-vol regime
+    int selected_tab_ = 0;
     
-    // Live trading dashboard state
-    ActivePosition active_position_;
-    bool has_active_position_ = false;
-    std::deque<ActivePosition> closed_positions_;  // Trade history
-    double cumulative_pnl_ = 0.0;
-    int total_trades_ = 0;
-    int winning_trades_ = 0;
-    int losing_trades_ = 0;
-    
-    BacktestMetrics backtest_metrics_;
-    bool backtest_has_results_ = false;
-    float connection_anim_time_ = 0.0f;
-
-    void render_top_panel(const OrderBook& ob, const VWAPCalculator& vwap);
+    void render_header();
+    void render_toolbar();
+    void render_tabs();
+    void render_market_watch_panel(const OrderBook& ob, const VWAPCalculator& vwap);
     void render_orderbook_panel(const OrderBook& ob);
-    void render_price_chart_panel();
-    void render_regime_analysis_panel();
-    void render_stats_panel(const VWAPCalculator& vwap);
+    void render_chart_panel();
+    void render_trades_panel();
+    void render_performance_panel();
     void render_signals_panel(const SignalGenerator& sig_gen);
-    void render_trading_dashboard_panel();
-    void render_backtest_results_panel();
-    void render_control_panel();
-    void render_debug_controls();
-    
-    // Live trading tracking methods
-    void update_active_position(double current_price, const SignalGenerator& sig_gen);
-    // Analysis computation
-    void compute_regime_analysis();
+    void render_backtest_panel();
+    void render_settings_panel();
+
+    void draw_price_chart();
+    void draw_equity_curve();
+    void draw_pnl_histogram();
+
+    static constexpr int PRICE_HISTORY_MAX = 500;
+    static constexpr int TRADES_DISPLAY_MAX = 50;
 };
+
+namespace ImGui {
+    void StyleColorsTerminal();
+    void SeparatorV();
+    void TextHighlight(const char* text, ImVec4 color);
+    void PanelHeader(const char* title);
+}

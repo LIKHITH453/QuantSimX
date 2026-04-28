@@ -121,7 +121,7 @@ BacktestMetrics Backtester::run() {
     is_running_ = true;
     trades_.clear();
     
-    Signal current_position = Signal::NONE;  // NONE = flat, BUY = long, SELL = short
+    Signal current_position = Signal::NONE;
     double entry_price = 0.0;
     uint64_t entry_time = 0;
     std::string entry_reason;
@@ -132,32 +132,67 @@ BacktestMetrics Backtester::run() {
         const auto& bar = bars_[i];
         progress_ = static_cast<double>(i) / bars_.size();
         
-        // Generate signal based on current bar
         Signal sig = signal_gen_.update(bar.timestamp_ms, bar.close, bar.vwap, bar.rsi);
         
-        if (sig != Signal::NONE) {
-            if (current_position == Signal::NONE && sig == Signal::BUY) {
-                // Enter long
-                current_position = Signal::BUY;
-                entry_price = bar.close;
-                entry_time = bar.timestamp_ms;
-                entry_reason = signal_gen_.last_signal().reason;
-            } else if (current_position == Signal::BUY && sig == Signal::SELL) {
-                // Exit long
-                BacktestTrade trade;
-                trade.entry_time = entry_time;
-                trade.exit_time = bar.timestamp_ms;
-                trade.entry_price = entry_price;
-                trade.exit_price = bar.close;
-                trade.pnl = (bar.close - entry_price);  // Per unit
-                trade.pnl_percent = (bar.close - entry_price) / entry_price * 100.0;
-                trade.entry_reason = entry_reason;
-                trade.exit_reason = signal_gen_.last_signal().reason;
-                
-                trades_.push_back(trade);
-                current_position = Signal::NONE;
-            }
+        if (sig == Signal::NONE) continue;
+        
+        if (current_position == Signal::NONE && sig == Signal::BUY) {
+            current_position = Signal::BUY;
+            entry_price = bar.close;
+            entry_time = bar.timestamp_ms;
+            entry_reason = signal_gen_.last_signal().reason;
         }
+        else if (current_position == Signal::NONE && sig == Signal::SELL) {
+            current_position = Signal::SELL;
+            entry_price = bar.close;
+            entry_time = bar.timestamp_ms;
+            entry_reason = signal_gen_.last_signal().reason;
+        }
+        else if (current_position == Signal::BUY && sig == Signal::SELL) {
+            BacktestTrade trade;
+            trade.entry_time = entry_time;
+            trade.exit_time = bar.timestamp_ms;
+            trade.entry_price = entry_price;
+            trade.exit_price = bar.close;
+            trade.pnl = (bar.close - entry_price);
+            trade.pnl_percent = (bar.close - entry_price) / entry_price * 100.0;
+            trade.entry_reason = entry_reason;
+            trade.exit_reason = signal_gen_.last_signal().reason;
+            trades_.push_back(trade);
+            current_position = Signal::NONE;
+        }
+        else if (current_position == Signal::SELL && sig == Signal::BUY) {
+            BacktestTrade trade;
+            trade.entry_time = entry_time;
+            trade.exit_time = bar.timestamp_ms;
+            trade.entry_price = entry_price;
+            trade.exit_price = bar.close;
+            trade.pnl = (entry_price - bar.close);
+            trade.pnl_percent = (entry_price - bar.close) / entry_price * 100.0;
+            trade.entry_reason = entry_reason;
+            trade.exit_reason = signal_gen_.last_signal().reason;
+            trades_.push_back(trade);
+            current_position = Signal::NONE;
+        }
+    }
+    
+    if (current_position != Signal::NONE && !bars_.empty()) {
+        const auto& bar = bars_.back();
+        BacktestTrade trade;
+        trade.entry_time = entry_time;
+        trade.exit_time = bar.timestamp_ms;
+        trade.entry_price = entry_price;
+        trade.exit_price = bar.close;
+        if (current_position == Signal::BUY) {
+            trade.pnl = (bar.close - entry_price);
+            trade.pnl_percent = (bar.close - entry_price) / entry_price * 100.0;
+        } else {
+            trade.pnl = (entry_price - bar.close);
+            trade.pnl_percent = (entry_price - bar.close) / entry_price * 100.0;
+        }
+        trade.entry_reason = entry_reason;
+        trade.exit_reason = "End of backtest";
+        trades_.push_back(trade);
     }
     
     progress_ = 1.0;
